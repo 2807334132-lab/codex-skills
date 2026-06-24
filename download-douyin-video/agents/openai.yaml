@@ -1,0 +1,4 @@
+interface:
+  display_name: "Download Douyin Video"
+  short_description: "Download public Douyin videos from share links."
+  default_prompt: "Download this Douyin video link and save it locally."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Resize Image Proportionally"
+  short_description: "Resize images to a target edge while preserving aspect ratio."
+  default_prompt: "Use $resize-image-proportionally to resize this image to a target pixel length while preserving its aspect ratio."

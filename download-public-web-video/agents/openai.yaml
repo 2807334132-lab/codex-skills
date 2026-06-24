@@ -1,0 +1,4 @@
+interface:
+  display_name: "Download Public Web Video"
+  short_description: "Download accessible web videos with validation."
+  default_prompt: "Download this publicly accessible web video and save it locally."

@@ -1,0 +1,14 @@
+# 分发包 gitignore
+# 跟踪数据目录（不纳入包管理）
+数据/
+tracking-data/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# 编辑器
+.vscode/
+.idea/

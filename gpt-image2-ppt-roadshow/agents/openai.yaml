@@ -1,0 +1,4 @@
+interface:
+  display_name: "GPT-image2 PPT Roadshow"
+  short_description: "Design investor PPT decks with AI visuals."
+  default_prompt: "Use $gpt-image2-ppt-roadshow to turn this document into a polished investor roadshow PPT with GPT-image2 visuals and layout QA."

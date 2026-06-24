@@ -1,0 +1,4 @@
+interface:
+  display_name: "DWG to PDF"
+  short_description: "Convert DWG drawings into checked PDF files."
+  default_prompt: "Use $dwg-to-pdf to convert this DWG drawing into a PDF and verify it renders."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Snake HTML Game"
+  short_description: "Create a polished standalone HTML snake game."
+  default_prompt: "Use $build-snake-html-game to create a standalone HTML snake web game."

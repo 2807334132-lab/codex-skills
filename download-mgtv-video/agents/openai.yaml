@@ -1,0 +1,4 @@
+interface:
+  display_name: "Download MGTV Video"
+  short_description: "Download MangoTV pages as standard MP4 files."
+  default_prompt: "Use $download-mgtv-video to download this MangoTV video link as an MP4."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Capture Complex Task As Skill"
+  short_description: "Turn completed complex work into reusable Codex skills."
+  default_prompt: "Summarize this completed complex task as a reusable skill."

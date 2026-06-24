@@ -1,0 +1,4 @@
+interface:
+  display_name: "Minimal Wallpaper"
+  short_description: "Generate refined minimalist desktop wallpapers."
+  default_prompt: "Use $minimal-wallpaper to generate a refined minimalist desktop wallpaper and set it as my background."

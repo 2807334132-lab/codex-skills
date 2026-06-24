@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>昆仑元Factory · 竞品全景报告 {YYYY年MM月}</title>
+<style>
+  :root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent2: #0f3460;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #333;
+    --text-light: #666;
+    --border: #e0e0e0;
+    --green: #27ae60;
+    --yellow: #f39c12;
+    --red: #e74c3c;
+    --blue: #3498db;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6; font-size: 15px;
+  }
+  .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent2) 100%);
+    color: #fff; padding: 40px 0; text-align: center;
+    border-radius: 12px; margin-bottom: 30px;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .header .subtitle { font-size: 14px; opacity: 0.85; }
+  .header .meta { font-size: 12px; opacity: 0.7; margin-top: 12px; }
+
+  /* Cards */
+  .card {
+    background: var(--card); border-radius: 10px; padding: 24px;
+    margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .card h2 {
+    font-size: 18px; font-weight: 700; margin-bottom: 16px;
+    padding-bottom: 8px; border-bottom: 2px solid var(--accent);
+    color: var(--primary);
+  }
+  .card h3 { font-size: 15px; font-weight: 600; margin: 12px 0 8px; color: var(--accent2); }
+
+  /* Status badges */
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+  .badge-up { background: #e8f5e9; color: #27ae60; }
+  .badge-down { background: #fce4ec; color: #e74c3c; }
+  .badge-flat { background: #f5f5f5; color: #666; }
+  .badge-p0 { background: #fce4ec; color: #c62828; }
+  .badge-p1 { background: #fff3e0; color: #e65100; }
+  .badge-p2 { background: #e3f2fd; color: #1565c0; }
+  .badge-p3 { background: #f5f5f5; color: #666; }
+
+  /* Score circle */
+  .score-circle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 60px; height: 60px; border-radius: 50%;
+    font-size: 20px; font-weight: 700; color: #fff; margin-right: 12px;
+    flex-shrink: 0;
+  }
+  .score-high { background: var(--red); }
+  .score-mid { background: var(--yellow); }
+  .score-low { background: var(--green); }
+
+  /* Tables */
+  table {
+    width: 100%; border-collapse: collapse; font-size: 14px;
+    margin: 12px 0;
+  }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { background: #f5f7fa; font-weight: 600; font-size: 13px; color: var(--text-light); }
+  tr:hover { background: #f8f9ff; }
+
+  /* Tags */
+  .tag {
+    display: inline-block; padding: 1px 8px; border-radius: 4px;
+    font-size: 12px; font-weight: 500;
+  }
+  .tag-impact-high { background: #fce4ec; color: #c62828; }
+  .tag-impact-mid { background: #fff3e0; color: #e65100; }
+  .tag-impact-low { background: #e8f5e9; color: #2e7d32; }
+
+  /* Action items */
+  .actions { list-style: none; }
+  .actions li {
+    padding: 10px 14px; margin-bottom: 8px; border-radius: 6px;
+    border-left: 4px solid; font-size: 14px;
+  }
+  .actions .urgent { background: #fff5f5; border-color: var(--red); }
+  .actions .week { background: #fffbf0; border-color: var(--yellow); }
+  .actions .month { background: #f0f7ff; border-color: var(--blue); }
+  .actions li .label { font-weight: 600; display: block; margin-bottom: 2px; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
+    width: 2px; background: var(--border);
+  }
+  .timeline-item { position: relative; margin-bottom: 16px; }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -20px; top: 6px;
+    width: 10px; height: 10px; border-radius: 50%; background: var(--accent);
+    border: 2px solid #fff;
+  }
+  .timeline-date { font-size: 12px; color: var(--text-light); }
+  .timeline-title { font-weight: 600; }
+
+  /* Summary grid */
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 20px; }
+  .summary-item {
+    text-align: center; padding: 20px; border-radius: 8px;
+    background: #f8f9ff; border: 1px solid var(--border);
+  }
+  .summary-item .value { font-size: 28px; font-weight: 700; color: var(--primary); }
+  .summary-item .label { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+
+  /* Footer */
+  .footer { text-align: center; font-size: 12px; color: var(--text-light); padding: 20px 0; }
+
+  @media (max-width: 600px) {
+    .container { padding: 12px; }
+    .header { padding: 24px 0; }
+    .header h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <h1>🏭 昆仑元Factory · 竞品全景报告</h1>
+  <div class="subtitle">{YYYY年MM月} — 全面竞争态势分析</div>
+  <div class="meta">报告生成：{YYYY-MM-DD HH:mm} | 数据截至：{YYYY-MM-DD} | 跟踪竞品：{N} 个</div>
+</div>
+
+<!-- Section 1: Executive Summary -->
+<div class="card">
+  <h2>1. 执行摘要</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <div class="value">{N}</div>
+      <div class="label">跟踪竞品总数</div>
+    </div>
+    <div class="summary-item">
+      <div class="value">{P0_N}</div>
+      <div class="label">P0 核心竞品</div>
+    </div>
+    <div class="summary-item">
+      <div class="value">{CHANGED_N}</div>
+      <div class="label">本月评分变化</div>
+    </div>
+    <div class="summary-item">
+      <div class="value">{SIGNALS_N}</div>
+      <div class="label">本月关键信号</div>
+    </div>
+  </div>
+  <p>{执行摘要内容 — 3-5 条关键发现}</p>
+  <p style="margin-top:8px;font-weight:600;">总体态势：{↑ 竞争加剧 / → 总体平稳 / ↓ 竞争缓解}</p>
+</div>
+
+<!-- Section 2: Competitive Positioning Scores -->
+<div class="card">
+  <h2>2. 竞争定位评分</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>竞品</th>
+        <th>评分</th>
+        <th>上月</th>
+        <th>变化</th>
+        <th>优先级</th>
+        <th>主要驱动维度</th>
+      </tr>
+    </thead>
+    <tbody>
+      {COMPETITOR_ROWS}
+      <!-- 示例行：
+      <tr>
+        <td><strong>天工</strong></td>
+        <td><span class="score-circle score-mid" style="width:36px;height:36px;font-size:14px;">72</span></td>
+        <td>70</td>
+        <td><span class="badge badge-up">↑+2</span></td>
+        <td><span class="badge badge-p0">P0 核心</span></td>
+        <td>产品重叠+叙事</td>
+      </tr>
+      -->
+    </tbody>
+  </table>
+</div>
+
+<!-- Section 3: Product Feature Matrix -->
+<div class="card">
+  <h2>3. 产品功能矩阵</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>能力层</th>
+        <th>昆仑元</th>
+        {COMPETITOR_HEADERS}
+        <!-- <th>天工</th><th>GPUStack</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      {MATRIX_ROWS}
+      <!-- 示例行：
+      <tr>
+        <td><strong>L1 智能算力</strong></td>
+        <td>✅ GPT-Factory</td>
+        <td>⚠️ 自研/开源</td>
+        <td>✅ GPUStack</td>
+      </tr>
+      -->
+    </tbody>
+  </table>
+</div>
+
+<!-- Section 4: Technology & Capability Gap -->
+<div class="card">
+  <h2>4. 技术与能力差距</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>能力维度</th>
+        <th>昆仑元</th>
+        {COMPETITOR_HEADERS}
+      </tr>
+    </thead>
+    <tbody>
+      {TECH_ROWS}
+    </tbody>
+  </table>
+  <p style="margin-top:12px;font-size:13px;color:var(--text-light);">
+  ✅ 领先 | ⚠️ 需关注 | ➖ 持平
+  </p>
+</div>
+
+<!-- Section 5: Market Narrative -->
+<div class="card">
+  <h2>5. 市场叙事对比</h2>
+  {NARRATIVE_CONTENT}
+  <!--
+  <h3>天工</h3>
+  <p>"一人公司操作系统"</p>
+  <h3>GPUStack</h3>
+  <p>"Token 工厂"</p>
+  <h3>昆仑元</h3>
+  <p>"全栈AI基础设施的规模化验证者"</p>
+  <p style="margin-top:12px;padding:10px;background:#fffbf0;border-radius:6px;">
+  <strong>叙事竞争分析</strong>：...（哪些竞品的叙事在侵蚀昆仑元的差异化定位）
+  </p>
+  -->
+</div>
+
+<!-- Section 6: Business Model -->
+<div class="card">
+  <h2>6. 商业模式分析</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>竞品</th>
+        <th>定价模型</th>
+        <th>价格水平</th>
+        <th>目标客户</th>
+        <th>与昆仑元重叠度</th>
+      </tr>
+    </thead>
+    <tbody>
+      {BUSINESS_ROWS}
+    </tbody>
+  </table>
+</div>
+
+<!-- Section 7: Threat Assessment -->
+<div class="card">
+  <h2>7. 威胁评估</h2>
+  {THREAT_CONTENT}
+  <!-- 逐竞品评估 -->
+</div>
+
+<!-- Section 8: Historical Timeline -->
+<div class="card">
+  <h2>8. 本月关键事件时间线</h2>
+  <div class="timeline">
+    {TIMELINE_ITEMS}
+    <!--
+    <div class="timeline-item">
+      <div class="timeline-date">2026-06-17</div>
+      <div class="timeline-title">天工 3.1 发布</div>
+      <div>叙事升级：Skywork Design + Dynamic Workflows</div>
+    </div>
+    -->
+  </div>
+</div>
+
+<!-- Section 9: Recommended Actions -->
+<div class="card">
+  <h2>9. 推荐行动</h2>
+  <ul class="actions">
+    {URGENT_ACTIONS}
+    <li class="urgent"><span class="label">🔴 立即行动</span>{行动描述}</li>
+    {WEEK_ACTIONS}
+    <li class="week"><span class="label">🟡 本周关注</span>{行动描述}</li>
+    {MONTH_ACTIONS}
+    <li class="month"><span class="label">🟢 本月计划</span>{行动描述}</li>
+  </ul>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>昆仑元AI · 竞品跟踪系统 · 自动生成</p>
+  <p>信息来源：公开数据、Web搜索、GitHub API、行业报告</p>
+  <p style="margin-top:4px;font-size:11px;">本报告由 AI 自动生成，部分信息可能不完整或过期，建议结合人工核查使用</p>
+</div>
+
+</div>
+</body>
+</html>

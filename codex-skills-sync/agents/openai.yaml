@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Skills Sync"
+  short_description: "Set up long-term GitHub sync for personal Codex skills."
+  default_prompt: "Use $codex-skills-sync to set up or repair GitHub-based synchronization for my Codex skills folder."

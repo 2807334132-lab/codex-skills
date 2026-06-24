@@ -1,0 +1,4 @@
+interface:
+  display_name: "Precise Infographic Raster Edit"
+  short_description: "Targeted raster infographic edits"
+  default_prompt: "Precisely edit this infographic while keeping non-target content unchanged."

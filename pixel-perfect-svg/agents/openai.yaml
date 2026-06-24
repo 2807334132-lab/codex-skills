@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pixel Perfect SVG"
+  short_description: "Turn reference PNGs into exact or editable SVG vectors."
+  default_prompt: "Use $pixel-perfect-svg to convert this reference PNG into a visually exact SVG and an editable traced SVG."

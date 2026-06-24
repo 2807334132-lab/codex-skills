@@ -1,0 +1,4 @@
+interface:
+  display_name: "Draft Publicity From Reference Docx"
+  short_description: "Match reference publicity writing style"
+  default_prompt: "Use reference Word documents to draft a publicity article from source material."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Make Grid Stickers"
+  short_description: "Extract grid characters into tight transparent GIF stickers."
+  default_prompt: "Use $make-grid-stickers to extract characters from this grid image into tight transparent GIF stickers."
