@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image to Editable PPT Slide"
+  short_description: "Rebuild a reference image as one editable PowerPoint slide."
+  default_prompt: "Use $image-to-editable-ppt-slide to turn this reference image into a one-slide editable PowerPoint."
