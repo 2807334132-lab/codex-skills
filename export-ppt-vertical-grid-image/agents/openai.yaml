@@ -1,0 +1,4 @@
+interface:
+  display_name: "PPT Vertical Grid Image"
+  short_description: "Create clear 3:4 PPT overview grid images"
+  default_prompt: "Use $export-ppt-vertical-grid-image to turn this PPT into a clear 3:4 vertical overview image."

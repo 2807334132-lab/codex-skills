@@ -1,0 +1,4 @@
+interface:
+  display_name: "视频逐字稿转 Word"
+  short_description: "高精度转写视频音频并用画面字幕校对后生成 Word"
+  default_prompt: "请把这个视频里的音频逐句完整转写，并结合画面字幕校对专有名词和漏句，生成 Word 文档。"
